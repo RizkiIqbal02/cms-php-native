@@ -13,7 +13,9 @@ class HomeController
 
     public function about()
     {
-        echo "Ini adalah halaman about";
+        $title = 'About';
+        $content = 'Ini adalah halaman about';
+        $this->render('home', compact('title', 'content'));
     }
 
     private function render($view, $data = [])
