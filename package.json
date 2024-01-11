@@ -1,0 +1,20 @@
+{
+  "name": "cms-php-native",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.php",
+  "scripts": {
+    "dev": "npx tailwindcss -i ./src/css/input.css -o ./public/css/output.css --watch ",
+    "build": "npx tailwindcss -o ./public/css/output-min.css --minify",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "cms-php-native"
+  },
+  "author": "Rizki Iqbal Muladi",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.4.1"
+  }
+}
