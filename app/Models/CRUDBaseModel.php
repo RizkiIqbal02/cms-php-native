@@ -141,4 +141,15 @@ class CRUDBaseModel
         $data = $result->fetch_assoc();
         return $data;
     }
+    public function query($column, $value)
+    {
+        $sql = "SELECT * FROM $this->table WHERE $column = ?";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bind_param("s", $value);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+        $data = $result->fetch_all(MYSQLI_ASSOC);
+        return $data;
+    }
 }

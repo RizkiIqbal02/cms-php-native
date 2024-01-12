@@ -34,6 +34,15 @@ switch ($uri) {
             header('Location: /login');
             break;
         }
+    case '/dashboard/create':
+        if (isset($_SESSION['isLogin'])) {
+            $home = new DashboardController();
+            $home->create();
+            break;
+        } else {
+            header('Location: /login');
+            break;
+        }
     case '/login':
         if (!isset($_SESSION['isLogin'])) {
             # code...
@@ -66,6 +75,15 @@ switch ($uri) {
             // destroy the session
             session_destroy();
             header('Location: /');
+            break;
+        }
+    case '/dashboard/post':
+        if (isset($_SESSION['isLogin'])) {
+            $home = new DashboardController();
+            $home->create();
+            break;
+        } else {
+            header('Location: /login');
             break;
         }
     default:

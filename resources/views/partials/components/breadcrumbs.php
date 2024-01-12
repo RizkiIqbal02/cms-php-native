@@ -1,5 +1,5 @@
-<div class="flex justify-center">
-    <div class="text-sm breadcrumbs">
+<div class="flex justify-start ">
+    <div class="text-lg breadcrumbs p-5">
         <ul>
             <li>
                 <a href="/">
@@ -14,9 +14,11 @@
             // Print array dari setiap bagian path
             ?>
 
+            <?php $currentPath = ''; ?>
             <?php foreach ($segments as $segment) { ?>
+                <?php $currentPath .= '/' . $segment; ?>
                 <li>
-                    <a href="<?php '/' . $segment  ?>">
+                    <a href="<?php echo $currentPath; ?>">
                         <?php echo ($segment) ?>
                     </a>
                 </li>
