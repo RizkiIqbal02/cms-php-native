@@ -35,13 +35,39 @@ switch ($uri) {
             break;
         }
     case '/login':
-        $home = new LoginController();
-        $home->index();
-        break;
+        if (!isset($_SESSION['isLogin'])) {
+            # code...
+            $home = new LoginController();
+            $home->index();
+            break;
+        } else {
+            header('Location: /dashboard');
+            break;
+        }
     case '/register':
-        $home = new RegisterController();
-        $home->index();
-        break;
+        if (!isset($_SESSION['isLogin'])) {
+            # code...
+            $home = new RegisterController();
+            $home->index();
+            break;
+        } else {
+            header('Location: /dashboard');
+            break;
+        }
+    case '/logout':
+        if (!isset($_SESSION['isLogin'])) {
+            # code...
+            header('Location: /login');
+            break;
+        } else {
+            // remove all session variables
+            session_unset();
+
+            // destroy the session
+            session_destroy();
+            header('Location: /');
+            break;
+        }
     default:
         http_response_code(404);
         $segments = explode('/', $uri);

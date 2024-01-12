@@ -1,4 +1,4 @@
-<?php include "partials/header.php" ?>
+<?php include "partials/layouts/header.php" ?>
 
 <div class="flex w-full h-screen justify-center items-center">
 
@@ -46,4 +46,4 @@
     </div>
 </div>
 
-<?php include "partials/footer.php" ?>
+<?php include "partials/layouts/footer.php" ?>

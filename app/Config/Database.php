@@ -4,16 +4,24 @@ namespace App\Config;
 
 class Database
 {
+    // parsing file .env nya ceritanya
+    private $config;
 
-    private $host = "127.0.0.1";
-    private $user = "root";
-    private $pass = "root";
-    private $dbname = "cms_native_php";
+    private $host;
+    private $user;
+    private $pass;
+    private $dbname;
 
     protected $connection;
 
     public function __construct()
     {
+        $this->config = parse_ini_file(__DIR__ . '/../../.env');
+
+        $this->host = $this->config['DB_HOST'];
+        $this->user = $this->config['DB_USERNAME'];
+        $this->pass = $this->config['DB_PASSWORD'];
+        $this->dbname = $this->config['DB_DATABASE'];
         if (!$this->connection) {
             $this->connect();
             // var_dump($this->connection);

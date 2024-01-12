@@ -1,4 +1,4 @@
-<?php include "partials/header.php" ?>
+<?php include "partials/layouts/header.php" ?>
 
 <div class="flex w-full h-screen justify-center items-center">
 
@@ -30,10 +30,10 @@
                     </div>
                 </label>
 
-                <button type="submit" class="btn btn-block max-w-md bg-fuchsia-500 text-slate-200 hover:bg-fuchsia-800">Create account</button>
+                <button type="submit" class="btn btn-block max-w-md bg-fuchsia-500 text-slate-200 hover:bg-fuchsia-800">Login</button>
             </form>
         </div>
     </div>
 </div>
 
-<?php include "partials/footer.php" ?>
+<?php include "partials/layouts/footer.php" ?>

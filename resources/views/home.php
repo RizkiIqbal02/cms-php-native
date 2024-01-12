@@ -1,7 +1,7 @@
-<?php include "partials/header.php"; ?>
+<?php include "partials/layouts/header.php"; ?>
+<?php include "partials/components/navbar.php" ?>
+
+<?php include "partials/components/breadcrumbs.php" ?>
 <h1><? echo $content ?></h1>
 
-<?= $_SESSION['user']['password'] ?>
-<?= urlencode($_SESSION['user']['name']) ?>
-
-<?php include "partials/footer.php"; ?>
+<?php include "partials/layouts/footer.php"; ?>

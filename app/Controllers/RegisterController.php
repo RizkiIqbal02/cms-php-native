@@ -22,10 +22,15 @@ class RegisterController
     }
     private function processRegistration()
     {
-        $user = new User();
-        $data = ['name' => $_POST['name'], 'email' => $_POST['email'], 'password' => password_hash($_POST['password'], PASSWORD_BCRYPT)];
-        $user->create($data);
-        header('Location: /login');
+        try {
+
+            $user = new User();
+            $data = ['name' => $_POST['name'], 'email' => $_POST['email'], 'password' => password_hash($_POST['password'], PASSWORD_BCRYPT)];
+            $user->create($data);
+            header('Location: /login');
+        } catch (\Throwable $th) {
+            header("Location: /error?message=" . urlencode($th->getMessage()));
+        }
     }
 
     private function render($view, $data = [])

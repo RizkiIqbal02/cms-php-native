@@ -1,3 +1,3 @@
-<?php include "partials/header.php"; ?>
+<?php include "partials/layouts/header.php"; ?>
 <h1><?php echo isset($content) ? $content : "Konten nya ngga ada"; ?></h1>
-<?php include "partials/footer.php"; ?>
+<?php include "partials/layouts/footer.php"; ?>

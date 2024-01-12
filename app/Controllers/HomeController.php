@@ -2,10 +2,18 @@
 
 namespace App\Controllers;
 
+require_once __DIR__ . '/../Models/User.php';
+
+use App\Models\User;
+
 class HomeController
 {
     public static function index()
     {
+        // $user = new User();
+        // $userdin = $user->where('name', 'Rizki Iqbal Muladi');
+        // print_r($userdin);
+        // die();
         $title = 'Home';
         $content = 'Ini adalah halaman home';
         self::render('home', compact('title', 'content'));

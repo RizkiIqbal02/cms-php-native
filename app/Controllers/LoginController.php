@@ -24,22 +24,27 @@ class LoginController
 
     private function processLogin()
     {
-        $email = $_POST['email'];
-        $password = $_POST['password'];
+        try {
+            $users = new User(); // Ubah menjadi instance User model, bukan User controller
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+            $user = $users->where('email', $email);
 
-        $userModel = new User(); // Ubah menjadi instance User model, bukan User controller
-        $loggedInUser = $userModel->login($email, $password);
-
-        if ($loggedInUser) {
-            // Simpan informasi yang relevan dalam sesi, misalnya, ID pengguna
-            $_SESSION['user'] = $loggedInUser;
-            $_SESSION['isLogin'] = true;
-            header('Location: /');
-            exit;
-        } else {
-            // Jika login gagal, mungkin tampilkan pesan kesalahan atau alihkan ke halaman login
-            header('Location: /login?error=1');
-            exit;
+            // Periksa apakah password cocok
+            if ($user && password_verify($password, $user['password'])) {
+                $_SESSION['user'] = $user;
+                $_SESSION['isLogin'] = true;
+                header('Location: /dashboard');
+                exit;
+            } else {
+                // Jika login gagal, mungkin tampilkan pesan kesalahan atau alihkan ke halaman login
+                header('Location: /login?error=1');
+                exit;
+            }
+        } catch (\Throwable $th) {
+            // Tangani kesalahan dan alihkan ke halaman error
+            header('Location: /error?message=' . urlencode($th->getMessage()));
+            exit();
         }
     }
 
