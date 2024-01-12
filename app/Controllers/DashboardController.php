@@ -1,31 +1,25 @@
 <?php
 
+
 namespace App\Controllers;
 
 require_once __DIR__ . '/../Models/User.php';
 
 use App\Models\User;
 
-class RegisterController
+class DashboardController
 {
     public function index()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-            $title = 'Register';
-            $this->render('register', compact('title'));
+            $title = 'Dasboard';
+            $this->render('dashboard', compact('title'));
         }
 
         // Menangani metode POST (memproses data formulir)
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $this->processRegistration();
+            // $this->processLogin();
         }
-    }
-    private function processRegistration()
-    {
-        $user = new User();
-        $data = ['name' => $_POST['name'], 'email' => $_POST['email'], 'password' => password_hash($_POST['password'], PASSWORD_BCRYPT)];
-        $user->create($data);
-        header('Location: /login');
     }
 
     private function render($view, $data = [])

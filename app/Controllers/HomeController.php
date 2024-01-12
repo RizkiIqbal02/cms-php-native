@@ -4,21 +4,21 @@ namespace App\Controllers;
 
 class HomeController
 {
-    public function index()
+    public static function index()
     {
         $title = 'Home';
         $content = 'Ini adalah halaman home';
-        $this->render('home', compact('title', 'content'));
+        self::render('home', compact('title', 'content'));
     }
 
-    public function about()
+    public static function about()
     {
         $title = 'About';
         $content = 'Ini adalah halaman about';
-        $this->render('home', compact('title', 'content'));
+        self::render('home', compact('title', 'content'));
     }
 
-    private function render($view, $data = [])
+    private static function render($view, $data = [])
     {
         // Lakukan ekstraksi data agar bisa diakses dalam view
         extract($data);
