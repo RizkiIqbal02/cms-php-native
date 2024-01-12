@@ -9,5 +9,4 @@
 - Maintainable
 - Following best practice
 
-## Status 
-### Maintain (Finalizing)
+## Status Maintain (Finalizing)
